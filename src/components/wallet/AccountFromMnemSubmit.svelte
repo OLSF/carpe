@@ -16,6 +16,8 @@
   import { addNewAccount, isCarpeInit, refreshAccounts } from "../../accountActions";
 
   export let danger_temp_mnem: string;
+  export let other_address: string;
+
   export let isNewAccount: boolean = true;
 
   onMount(async () => {
@@ -31,9 +33,8 @@
   let isSubmitting = false;
   function handleAdd() {
     isSubmitting = true;
-
     // submit
-    invoke("init_from_mnem", { mnem: danger_temp_mnem.trim() })
+    invoke("init_from_mnem", { mnem: danger_temp_mnem.trim(), otherAddress: other_address.trim() })
       .then((res: AccountEntry) => {
         if (isNewAccount) {
           UIkit.modal("#submit-confirmation-modal").$destroy(true); // known bug https://github.com/uikit/uikit/issues/1370
