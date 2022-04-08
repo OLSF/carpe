@@ -3,7 +3,7 @@
 This document wants to list and show how to fix common issues. If you encounter an issue that is not listed here, you can post a comment in the ***# ?*** **|** ***help-desk*** channel of 0L Discord server.
 
 Here is the list of issues:
-- [Error (100): loadAccounts: misc error, message: "expected value at line 1 column 1"](#Error-(100)
+- [Error (100): loadAccounts: misc error, message: "expected value at line 1 column 1"](#Error-(100))
 - [Hard reset the application files](#Reset-the-application-files)
 - [Restore your local tower](#Restore-your-local-tower)
 
