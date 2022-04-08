@@ -5,11 +5,11 @@ This document wants to list and show how to fix common issues. If you encounter 
 Here is the list of issues:
 - [Error (100): loadAccounts: misc error, message: "expected value at line 1 column 1"](#Error-(100))
 - [Hard reset the application files](#Reset-the-application-files)
-- [Restore your local tower](#Restore-your-local-tower)
+- [Restore your local tower](#Hard-resetting-the-application-files)
 
 ## Error (100): loadAccounts: misc error, message: "expected value at line 1 column 1"
 
-This issue usually happens when the Carpe application is closed abruptly, like during a crash or a power loss for example. You need to proceed to a [Hard reset the application files](#Reset-the-application-files).
+This issue usually happens when the Carpe application is closed abruptly, like during a crash or a power loss for example. You need to proceed to a [Hard reset the application files](#Hard-resetting-the-application-files).
 
 ## Hard resetting the application files
 The application files are stored in a folder named *.0L* and the instructions below are for regenerating a clean *.0L* folder.
