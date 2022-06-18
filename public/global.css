@@ -1,6 +1,6 @@
 /* Just for example */
 html {
-  background-color: #f1f2f3;
+  background-color: white;
 }
 
 /* -----------------------------
@@ -78,3 +78,474 @@ input:checked + .uk-switch-slider.uk-switch-big:before {
   background-color: rgba(255,255,255,0.22);
 }
 
+
+/* Rework to override the uikit */
+.hide {
+  display:none!important;
+}
+:root {
+  --carpe-color: #ff5958;
+  --carpe-color-light: #ff8383;
+  --carpe-blue:#53acff;/* #1890ff;*/
+  --carpe-dark-blue:#1890ff;
+  --dark-gray:#666;
+  --gray: lightgray;
+  --light-gray: rgb(234, 234, 234);
+  --night-header: #111;
+  --night-body: #444;
+  --night-highlight: #111;
+  --day-body:white;
+}
+
+/* Setting background of main app. Must go through and actually remove the muted class in some instances */
+main .uk-background-muted {
+  background-color:var(--day-body)!important;
+}
+
+/* Specific for the navbar header class 'carpe-nav-container' */
+.carpe-nav-container .uk-navbar-container:not(.uk-navbar-transparent) {
+  background:var(--day-body);
+  border-bottom:1px solid var(--gray);
+}
+.carpe-nav-container ul {
+  margin-bottom:0;
+}
+
+.carpe-nav-container .uk-navbar-left span {
+  color:var(--carpe-color);
+  font-weight: 700;
+}
+
+.carpe-nav-container button.uk-button, body.night .carpe-nav-container button.uk-button {
+  color: white;
+  background-color: var(--carpe-color);
+  border-radius: 2em;
+  border: 2px solid rgba(255, 62, 0, 0);
+  outline: none;
+  cursor: pointer;
+  margin-left:20px;
+  margin-right:15px;
+}
+body.night .carpe-nav-container button.uk-button:hover {
+  background-color: var(--carpe-color-light);
+}
+.carpe-nav-container .uk-navbar-item {
+  min-height: 70px;
+}
+
+.carpe-nav-container .uk-tab > * > a {
+  text-transform: none;
+  color: #bfbebe;
+  font-size:16px;
+  padding:15px 10px 15px 10px;
+  font-weight: 500;
+}
+
+.carpe-nav-container .uk-tab > .uk-active > a, .uk-tab > * > a:hover {
+  border-color: var(--carpe-color);
+  border-width: 2px;
+  color:var(--carpe-color);
+}
+
+.carpe-nav-container .uk-tab::before {
+  border-bottom:none;
+}
+
+/* Overriding existing uikit */
+@media (min-width: 960px) {
+  main .uk-container {
+    padding-left:0;
+    padding-right:0;
+  }
+}
+
+/* Nav Dropdown modification */
+.carpe-nav-container .uk-dropdown {
+  background: var(--day-body);
+  box-shadow: none;
+  padding:30px;
+  border:1px solid var(--gray);
+  border-radius: 20px;
+}
+body.night .uk-dropdown {
+  background: var(--night-header);
+}
+.carpe-nav-container .uk-dropdown li {
+  font-size:16px;
+}
+
+.carpe-nav-container .uk-text-primary {
+  color:var(--carpe-color)!important;
+}
+
+/* Wallet main page */
+.uk-table td {
+  color:var(--carpe-blue);
+}
+main .carpe-titles {
+  color:var(--carpe-color);
+  font-size:2.5rem;
+  font-weight: 700;
+}
+
+.uk-card.uk-card-primary {
+  background-color:var(--day-body)!important;
+  border:1px solid var(--gray);
+  border-radius: 20px;
+  margin:30px;
+  color:black!important;
+}
+
+.uk-card.uk-card-primary h3, .uk-card.uk-card-primary h4, .carpe-sub-titles {
+  color:var(--carpe-blue)!important;
+}
+
+.uk-card-primary.uk-card-hover, .uk-card-primary.uk-card-hover:hover {
+  box-shadow: none!important;
+}
+
+.uk-card.uk-card-primary p {
+  color:var(--dark-gray)!important;
+}
+
+.uk-card.uk-card-primary a {
+  color:var(--carpe-blue)!important;
+}
+
+.uk-card.uk-card-primary span.uk-text-uppercase, .carpe-card .uk-section span.carpe-address-hightlight, body.night .carpe-card .uk-section span.carpe-address-hightlight {
+  color:var(--carpe-blue)!important;
+  border-radius:5px;
+  padding:10px;
+  font-weight: bold;
+}
+
+main .uk-button-secondary {
+  color: white;
+  background-color: var(--carpe-blue);
+  border-radius: 2em;
+  border: 2px solid rgba(255, 62, 0, 0);
+  outline: none;
+  cursor: pointer;
+  margin-left:20px;
+  text-transform: capitalize;
+}
+main .uk-button-secondary:hover {
+  background-color: var(--carpe-dark-blue);
+}
+
+main .uk-button-default {
+  color: black;
+  background-color: var(--day-body);
+  border-radius: 2em;
+  border: 2px solid rgba(255, 62, 0, 0);
+  outline: none;
+  cursor: pointer;
+  margin-left:20px;
+  text-transform: capitalize;
+  border:1px solid var(--gray);
+}
+body.night main .uk-button-default {
+  color: white;
+  background-color: var(--night-body);
+}
+body.night main .uk-button-default:hover {
+  background-color: var(--night-header);
+}
+.carpe-wallet-list-container {
+  padding:0 50px 0 50px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray);
+  border-radius: 20px;
+  margin:30px;
+}
+.carpe-tabs button {
+  padding:5px 30px 5px 30px;
+}
+/* Miner details */
+.carpe-color, .uk-card.uk-card-primary.carpe-color, .uk-card.uk-card-primary h3.carpe-color, .uk-card.uk-card-primary h4.carpe-color {
+  color:var(--carpe-color)!important;
+}
+.carpe-card.miner-progress {
+  padding:30px 50px 30px 50px;
+}
+
+.uk-grid.carpe-card {
+  padding:50px;
+}
+.uk-card.uk-card-default.uk-card-body {
+  box-shadow: none;
+  background-color: var(--day-body);
+}
+body.night .uk-card.uk-card-default.uk-card-body {
+  background-color: var(--night-header);
+}
+
+/* Spin loader of menu icon */
+.account-switcher-link-padding {
+  padding:5px 0 5px 0;
+}
+.pointer {
+  cursor:pointer;
+}
+.loading-rotation {
+  display: inline-block;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Transaction page */
+.uk-modal {
+  transition: none!important;
+}
+.carpe-card {
+  background-color:var(--day-body)!important;
+  border:1px solid var(--gray);
+  border-radius: 20px;
+  margin:30px;
+  color:black!important;
+}
+
+#coinTransferDialog .uk-modal-title {
+  color:var(--carpe-blue);
+}
+#coinTransferDialog .uk-modal-dialog, #onboardDialog .uk-modal-dialog {
+  border-radius: 20px;
+  border:1px solid var(--light-gray);
+}
+body.night #coinTransferDialog .uk-modal-dialog, body.night #onboardDialog .uk-modal-dialog {
+  background-color:var(--night-header);
+}
+
+#coinTransferDialog .uk-input {
+  border-radius: 10px;
+}
+
+#coinTransferDialog .uk-button.uk-button-default.uk-modal-close.uk-margin-right {
+  border-radius: 20px;
+}
+body.night #coinTransferDialog .uk-button.uk-button-default, body.night #onboardDialog .uk-button.uk-button-default {
+  color:var(--day-body);
+}
+
+#coinTransferDialog .uk-button.uk-button-primary {
+  border-radius: 20px;
+}
+/* Onboarding dialog */
+#account-form .uk-button.uk-button-default.uk-modal-close.uk-margin-right {
+  border-radius: 20px;
+}
+
+#account-form .uk-button.uk-button-primary {
+  border-radius: 20px;
+}
+
+#onboardDialog .uk-modal-title {
+  color: var(--carpe-blue);
+}
+
+#onboardDialog .uk-input {
+  border-radius: 10px;
+}
+
+/* About page */
+.carpe-arrows {
+  display:flex;
+  align-items:center;
+  position: relative;
+  top: 3px;
+}
+
+/* Night mode */
+html.night {
+  background-color:var(--night-body);
+}
+
+body {
+  background-color:var(--day-body);
+}
+
+body.night {
+  background-color:#1d1d1d;
+}
+
+body.night .carpe-nav-container {
+  background-color:var(--night-header);
+}
+
+body.night .carpe-nav-container .uk-navbar-container:not(.uk-navbar-transparent) {
+  background:var(--night-header);
+}
+
+body.night main .uk-background-muted {
+  background:var(--night-body)!important;
+}
+body .uk-container {
+  background:var(--day-body);
+}
+body.night .uk-container {
+  background:var(--night-body);
+}
+body.night .carpe-wallet-list-container {
+  background-color:var(--night-highlight);
+}
+body.night .uk-card.uk-card-primary, body.night .carpe-card {
+  background-color:var(--night-highlight)!important;
+}
+
+/* Keygen page */
+.uk-card-primary>:not([class*=uk-card-media]) .uk-textarea {
+  color: var(--carpe-blue)!important;
+  background-color:var(--light-gray)!important;
+  border-radius: 20px;
+  padding:20px;
+  font-weight: 700;
+  word-spacing: 7px;
+}
+
+/* Restore account */
+#account-form .uk-card-primary.uk-card-body .uk-textarea, .uk-card-primary>:not([class*=uk-card-media]) .uk-input {
+  color:var(--carpe-blue)!important;
+  border:1px solid #e5e5e5!important;
+  border-radius: 20px;
+}
+.uk-card-primary.uk-card-body .uk-button-primary, .uk-card-primary>:not([class*=uk-card-media]) .uk-button-primary {
+  color: white!important;
+  background-color: var(--carpe-blue)!important;
+  border-radius: 2em;
+  border: 2px solid rgba(255, 62, 0, 0);
+  outline: none;
+  cursor: pointer;
+  margin-left:20px;
+  margin-right:15px;
+}
+
+/* Notifications */
+.uk-notification-message {
+  background-color:var(--day-body);
+  border: 1px solid var(--night-body);
+  border-radius: 20px;
+  transition:none!important;
+}
+body.night .uk-notification-message {
+  background-color:var(--night-body);
+  border: 1px solid var(--day-body);
+}
+.uk-notification-close {
+  display:block!important;
+  color:var(--night-body)!important;
+}
+body.night .uk-notification-close {
+  color:var(--day-body)!important;
+}
+
+/* Settings Page */
+.uk-section.carpe-settings-section {
+  padding-left:50px;
+  padding-right:50px;
+}
+.carpe-card .uk-section p,  .carpe-card .uk-section span {
+  color:var(--dark-gray)!important;
+}
+
+body.night .carpe-card .uk-section p, body.night .carpe-card .uk-section span  {
+  color:var(--day-body)!important;
+}
+
+/* Developers Page */
+
+.uk-section.developers-section {
+  padding:30px;
+}
+
+.uk-section.developers-section label {
+  color:var(--dark-gray)!important;
+}
+
+body.night .uk-section.developers-section label {
+  color:var(--day-body)!important;
+}
+.debug-card {
+  position: fixed; bottom: 0px; left: 0px; right: 0px; height: 280px; overflow-y: auto; z-index: 10; border-style: ridge;
+  background-color: var(--day-body);
+}
+body.night .debug-card, body.night .debug-card-container {
+  background-color:var(--night-header);
+}
+.debug-card-container {
+  margin: 0px !important; min-height: 100%;
+}
+
+
+/* Bridge Page */
+.carpe-bridge p {
+  max-width:600px;
+}
+
+/* Bridge Tabs */
+body.night .bridge-tabs-container {
+  background-color:var(--night-header);
+}
+.bridge-tabs-container {
+  display: flex;
+  border-radius: 99px;
+  width:400px;
+  align-items: center;
+  justify-content: space-between;
+  background-color:#f5f0f0;
+  padding:3px;
+}
+.bridge-tabs-container div {
+  padding:10px 30px 10px 30px;
+  border-radius: 99px;
+  color:tomato;
+  font-weight: 700;
+}
+.bridge-tabs-container div.tab-selected {
+  background-color:white;
+}
+.inner-tab {
+  cursor:pointer;
+}
+.inner-tab:hover {
+  background-color:white;
+}
+
+/* Bridge token form */
+body.night .bridge-form {
+  background-color:var(--night-header);
+}
+
+.asset-estimations{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 30px 0 10px;
+}
+
+.inner-chevron {
+  width:20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.night .token-select-container {
+  background-color: var(--night-header);
+}
+
+body.night .connect-title, body.night .token-type {
+  color:var(--day-body);
+}
+
+body.night .chain-token-container:hover {
+  background-color:#517a87;
+}

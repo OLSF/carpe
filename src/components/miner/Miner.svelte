@@ -33,7 +33,7 @@
   let unsubsIsRefreshingAccounts;
   let unsubsIsDevTest;
 
-  onMount(async () => {
+  onMount(async () => {    
     getTowerChainView();
     unsubsTower = tower.subscribe(t => {
       minerTower = t;
@@ -57,51 +57,61 @@
 </script>
 
  
-<main class="uk-height-viewport">
+<main>
   {#if loading}
-    <div style="position:relative">
-      <span style="position:absolute; left:0px; top:0px;" uk-spinner />
+    <div style="display:none;">
+      {window.add_spin_loading_to_logo()}
+      <!--<span style="position:absolute; left:0px; top:0px;" uk-spinner />-->
+    </div>
+  {:else}
+    <div style="display:none;">
+      {window.remove_spin_loading_to_logo()}
     </div>
   {/if}
   <div class="uk-flex uk-flex-center">
-    <h2 class="uk-text-light uk-text-muted uk-text-uppercase">
+    <h2 class="carpe-titles uk-text-light">
       {$_("miner.title")}
     </h2>
   </div>
 
   {#if isDevTest}
     <div class="uk-flex uk-flex-center">
-      <p class="uk-text-light uk-text-muted uk-text-uppercase">
+      <p class="uk-text-light uk-text-muted">
         DEV MODE, RUNNING IN TEST DIFFICULTY
       </p>
     </div>
   {/if}
-    <div class="uk-grid uk-margin-small">
+    <div class="uk-grid">
       {#if account && account.on_chain}
-        <div class="uk-width-1-1 uk-align-center">
-          <ToggleMiner />
-          <MinerProgress tower={minerTower} />
-          <!-- Lost time is never found again. -->
-        </div>
+          <div class="uk-width-1-1">
+            <div class="uk-text-center carpe-card miner-progress">
+              <ToggleMiner />
+              <MinerProgress tower={minerTower} />
+              <!-- Lost time is never found again. -->
+            </div>
+          </div>
 
         <div class="uk-width-1-1">
-          {#if newbie && !hasProofs }
-            <FirstProof />
-          {:else}
-            <div class="uk-grid uk-grid-match">
-              <div class="uk-width-1-3">
-                {#if isSendInProgress}
-                  <SyncProofs {minerTower} {loading} />
-                {:else}
-                  <EpochStatus {minerTower} isTowerNewbie={newbie}/>
-                {/if}
+          <div class="uk-text-center carpe-card miner-progress">
+            {#if newbie && !hasProofs }
+              <FirstProof />
+            {:else}
+              <div class="uk-grid uk-grid-match">
+                <div class="uk-width-1-3">
+                  {#if isSendInProgress}
+                    <SyncProofs {minerTower} {loading} />
+                  {:else}
+                    <EpochStatus {minerTower} isTowerNewbie={newbie}/>
+                  {/if}
+                </div>
+                <div class="uk-width-2-3">
+                  <TowerState {minerTower}/>
+                </div>
               </div>
-              <div class="uk-width-2-3">
-                <TowerState {minerTower}/>
-              </div>
-            </div>
-          {/if}
+            {/if}
+          </div>
         </div>
+
       {:else if account}
         <CantStart />
       {/if}

@@ -25,6 +25,7 @@ cargo build
 
 ```
 
+
 Then Javascript:
 
 ```bash
@@ -48,6 +49,21 @@ yarn tauri build
 ```
 
 This will create standalone app and installer in `src-tauri/target/release` directory.
+
+## Troubleshooting
+
+If using an Apple M1 and run into linking clang errors, please use: 
+
+```
+cargo clean
+cargo build --target=x86_64-apple-darwin
+```
+
+Then after building the frontend with the previous above, use the following in the src-tauri directory to run dev:
+
+```
+yarn tauri dev --target=x86_64-apple-darwin
+```
 
 ## Useful links
 

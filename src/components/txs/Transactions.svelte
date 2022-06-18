@@ -26,30 +26,37 @@
 
 <main>
   <div class="uk-flex uk-flex-center">
-    <h2 class="uk-text-light uk-text-muted uk-text-uppercase">{$_("nav.transactions")}</h2>
+    <h2 class="uk-text-light carpe-titles">{$_("nav.transactions")}</h2>
   </div>
 
   <!-- Account info -->
   {#if account}
-    <div class="uk-text-center">
+    <div style="display:none;">
+      {window.remove_spin_loading_to_logo()}
+    </div>
+    <div class="uk-text-center carpe-card">
       <div class="uk-section">
         <h4 class="uk-text-muted">
-          <span class="uk-text-uppercase"> {$_("txs.account")}: </span>
-          <span class="uk-text-bold uk-text-uppercase">{account.account}</span>
+          <span> {$_("txs.account")}: </span>
+          <span class="carpe-address-hightlight">{account.account}</span>
 
         </h4>
         <h4 class="uk-text-muted">
-          <span class="uk-text-uppercase">{$_("txs.balance")}: </span>
-          <span class="uk-text-bold">{printCoins(account.balance)}</span>
+          <span>{$_("txs.balance")}: </span>
+          <span class="carpe-address-hightlight">{printCoins(account.balance)}</span>
         </h4>
       </div>
+    </div>
     
-      <button uk-toggle="target: #onboardDialog" class="uk-button uk-button-default uk-margin-right">{$_("txs.btn_onboard")}</button>
-      <button uk-toggle="target: #coinTransferDialog" class="uk-button uk-button-primary">{$_("txs.btn_transfer")}</button>
+    <div uk-grid class="carpe-tabs uk-flex uk-flex-center">
+      <button uk-toggle="target: #onboardDialog" class="uk-margin-bottom uk-button uk-button-default uk-margin-right uk-">{$_("txs.btn_onboard")}</button>
+      <button uk-toggle="target: #coinTransferDialog" class="uk-margin-bottom uk-button uk-button-secondary">{$_("txs.btn_transfer")}</button>
     </div>
     <OnboardDialog {account} {onSuccess}/>
     <TransferDialog {account} {onSuccess}/>
   {:else}
-    Loading...
+  <div style="display:none;">
+    {window.add_spin_loading_to_logo()}
+  </div>
   {/if}
 </main>
